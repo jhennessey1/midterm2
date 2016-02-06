@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="calendarMod">
+	<head>
+		<title>Mid Term Project: Scheduling Program</title>
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"/>
+		<link rel="stylesheet" href="main.css"/>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js"></script>
+		
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+	<body ng-controller="calendarController">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 header">
+					<h1>Welcome to the Dog Grooming Scheduling Page</h1>
+					<h3>Complete the forms below to schedule your groom</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 groomerSelect">
+					<h4>Choose your groomer</h4>
+					<form>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox"> Alli
+							</label>
+							<label>
+								<input type="checkbox"> Emily
+							</label>
+							<label>
+								<input type="checkbox"> Amber
+							</label>
+						</div>
+					</form>
+				</div>
+				<div class="col-xs-8">
+					<ul class="nav nav-tabs">
+						<li role="presentation"><a href="#contactInfo" aria-controls="contactInfo" role="tab" data-toggle="tab">Contact Info</a></li>
+						<li role="presentation"><a href="#dogInfo" aria-controls="dogInfo" role="tab" data-toggle="tab">Dog Info</a></li>
+						<li role="presentation"><a href="#services" aria-controls="services" role="tab" data-toggle="tab">Services Needed</a></li>
+					</ul>
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane" id="contactInfo">Contact Stuff</div>
+						<div role="tabpanel" class="tab-pane" id="dogInfo">Dog Stuff</div>
+						<div role="tabpanel" class="tab-pane" id="services">Services</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
