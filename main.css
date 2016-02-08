@@ -5,3 +5,11 @@
 .groomerSelect {
 	background-color: #33cc33;
 }
+
+.dates {
+	border-bottom: 1px solid black;
+}
+
+.customerInfo {
+	background-color: #99b3ff;
+}

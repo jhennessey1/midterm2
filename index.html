@@ -19,23 +19,24 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-2 groomerSelect">
-					<h4>Choose your groomer</h4>
-					<form>
+				<div class="col-xs-4 groomerSelect">
+					<h4>{{greenMessage}}</h4>
+					<form ng-hide="showForms">
 						<div class="checkbox">
 							<label>
-								<input type="checkbox"> Alli
+								<input type="checkbox" ng-model="selectedGroomerAlli"> Alli
 							</label>
 							<label>
-								<input type="checkbox"> Emily
+								<input type="checkbox" ng-model="selectedGroomerEmily"> Emily
 							</label>
 							<label>
-								<input type="checkbox"> Amber
+								<input type="checkbox" ng-model="selectedGroomerAmber"> Amber
 							</label>
+							<button type="submit" ng-click="selectedGroomers()">Submit</button>
 						</div>
 					</form>
 				</div>
-				<div class="col-xs-8">
+				<div class="col-xs-8" ng-show="showForms">
 					<ul class="nav nav-tabs">
 						<li role="presentation"><a href="#contactInfo" aria-controls="contactInfo" role="tab" data-toggle="tab">Contact Info</a></li>
 						<li role="presentation"><a href="#dogInfo" aria-controls="dogInfo" role="tab" data-toggle="tab">Dog Info</a></li>
@@ -53,7 +54,7 @@
 								<div class="form-group">
 									<input type="email" class="form-control" placeholder="Email Address" ng-model="email">
 								</div>
-								<!-- <button type="submit" class="btn btn-default">Submit</button> -->
+								
 							</form>
 						</div>
 						<div role="tabpanel" class="tab-pane" id="dogInfo">
@@ -67,13 +68,17 @@
 								<div class="form-group">
 									<input type="text" class="form-control" placeholder="Weight" ng-model="weight">
 								</div>
-								<!-- <button type="submit" class="btn btn-default">Submit</button> -->
+								<div class="form-group">
+									<label for="fileInput">Upload Rabies Info</label>
+									<input type="file" id="fileInput">
+									<p class="help-block">Note: Rabies info must be presented in person if not uploaded here.</p>
+								</div>
 							</form>
 						</div>
 						<div role="tabpanel" class="tab-pane" id="services">
 							<div class="dropdown">
-								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{service}}<span class="caret"></span></button>
-								<ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+								<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">{{service}}<span class="caret"></span></button>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 									<li><a href="#" ng-click="serviceBath()">Bath and Brush</a></li>
 									<li><a href="#" ng-click="serviceFFT()">Face, Feet, and Tail</a></li>
 									<li><a href="#" ng-click="serviceFullGroom()">Full Groom</a></li>
@@ -85,7 +90,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-8" ng-show="showCustomer">
+				<div class="col-xs-4 customerInfo" ng-show="showCustomer">
 					<h3>Customer Info</h3>
 					<p>Name: {{customerName}}</p>
 					<p>Phone: {{phone}}</p>
@@ -94,6 +99,45 @@
 					<p>Breed: {{breed}}</p>
 					<p>Weight: {{weight}}lbs</p>
 					<p>Service Requested: {{service}}</p>
+					<p>Groomer(s): 
+						<ul>
+							<li ng-repeat="groomer in groomers">{{groomer}}</li>
+						</ul>
+					</p>
+				</div>
+				<div class="col-xs-8" ng-show="showDates">
+					<h2>Dates</h2>
+					<p>Select some dates to check for availability.</p>
+					<ul>
+						<li class="dates" ng-repeat="newDate in dates">{{newDate.date | date:"MM/dd/yyyy"}} 
+						<button class="btn btn-default" ng-click="bookTime(newDate)">Book a Time</button>
+						<div class="dropdown" ng-show="bookAppointment">
+							<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Choose Time<span class="caret"></span></button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+								<li><a href="#" ng-click="pushAppointment(date)">8:00am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">8:30am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">9:00am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">9:30am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">10:00am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">10:30am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">11:00am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">11:30am</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">12:00pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">12:30pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">1:00pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">1:30pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">2:00pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">2:30pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">3:00pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">3:30pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">4:00pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">4:30pm</a></li>
+								<li><a href="#" ng-click="pushAppointment(date)">5:00pm</a></li>
+							</ul>
+						</div>
+						</li>
+						<button class="btn btn-info" ng-click="moreDates()">More Dates...</button>
+					</ul>
 				</div>
 			</div>
 		</div>
