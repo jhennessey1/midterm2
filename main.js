@@ -10,7 +10,7 @@ angular.module('calendarMod')
 			weight: $scope.weight,
 			service: $scope.service,
 			groomers: $scope.groomers,
-			availableDates = []
+			availableDates: []
 		}
 		$scope.greenMessage = "First, choose your groomer(s)"
 		$scope.groomers = []
@@ -54,12 +54,11 @@ angular.module('calendarMod')
 					date: new Date().setDate(today.getDate() + i),
 					bookAppointment: false
 				}
-				$scope.availableDates.push($scope.newDate + ', ' + )
+				$scope.dates.push($scope.newDate)
 				$scope.newDate = {}
 			}
 		}
 		$scope.bookTime = function(date) {
-			console.log("Shit's working")
 			$scope.bookAppointment = true
 		}
 		$scope.moreDates = function() {
