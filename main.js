@@ -3,6 +3,7 @@ angular.module('calendarMod')
 	.controller('calendarController', ['$scope', function($scope){
 		
 		$scope.times = ["8:00am", "8:30am", "9:00am", "9:30am", "10:00am", "10:30am", "11:00am", "11:30am", "12:00pm", "12:30pm", "1:00pm", "1:30pm", "2:00pm", "2:30pm", "3:00pm", "3:30pm", "4:00pm", "4:30pm", "5:00pm"]
+
 		$scope.greenMessage = "First, choose your groomer(s)"
 		$scope.groomers = []
 		$scope.service = "Select a Service"
@@ -56,6 +57,7 @@ angular.module('calendarMod')
 			}
 		}
 		$scope.bookTime = function(date) {
+
 			date.bookAppointment = true
 		}
 		$scope.pushAppointment = function(date, time) {
@@ -66,6 +68,7 @@ angular.module('calendarMod')
 			$scope.newCustomer.availableDates.push($scope.appointment)
 			$scope.appointment = {}
 			date.bookAppointment = false
+
 
 		}
 		$scope.moreDates = function() {

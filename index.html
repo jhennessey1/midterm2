@@ -142,7 +142,7 @@
 					<ul>
 						<li class="dates" ng-repeat="newDate in dates">{{newDate.date | date:"MM/dd/yyyy"}} 
 						<button class="btn btn-default" ng-click="bookTime(newDate)">Book a Time</button>
-						<div class="dropdown" ng-show="newDate.bookAppointment">
+						<div class="dropdown" ng-show="bookAppointment">
 							<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Choose Time<span class="caret"></span></button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
 								<li ng-repeat="time in times"><a href="#" ng-click="pushAppointment(newDate, time)">{{time}}</a></li>
