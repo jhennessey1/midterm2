@@ -4,6 +4,7 @@
 
 .groomerSelect {
 	background-color: #33cc33;
+	padding: 10px;
 }
 
 .dates {
@@ -12,4 +13,12 @@
 
 .customerInfo {
 	background-color: #99b3ff;
+}
+
+body {
+	background-color: #ebfafa;
+}
+
+.logo {
+	background-color: white;
 }

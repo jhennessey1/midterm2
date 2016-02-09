@@ -11,10 +11,18 @@
 		<script type="text/javascript" src="main.js"></script>
 	</head>
 	<body ng-app="calendarMod" ng-controller="calendarController">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 logo">
+					<img src="http://wagzpetmarket.com/images/logo-grooming.jpg">
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 header">
-					<h1>Welcome to the Dog Grooming Scheduling Page</h1>
+					
+					<h1>Welcome to the Grooming Salon Scheduling Page</h1>
 					<h3>Complete the forms below to schedule your groom</h3>
 				</div>
 			</div>
@@ -35,6 +43,18 @@
 							<button type="submit" ng-click="selectedGroomers()">Submit</button>
 						</div>
 					</form>
+					<div ng-show="showGroomerAlli">
+						<h3>Alli</h3>
+						<img src="http://wagzpetmarket.com/images/staff_alli.jpg">
+					</div>
+					<div ng-show="showGroomerEmily">
+						<h3>Emily</h3>
+						<img src="http://wagzpetmarket.com/images/staff_emily.jpg">
+					</div>
+					<div ng-show="showGroomerAmber">
+						<h3>Amber</h3>
+						<img src="http://wagzpetmarket.com/images/staff_amber.jpg">
+					</div>
 				</div>
 				<div class="col-xs-8" ng-show="showForms">
 					<ul class="nav nav-tabs">
@@ -92,18 +112,29 @@
 			<div class="row">
 				<div class="col-xs-4 customerInfo" ng-show="showCustomer">
 					<h3>Customer Info</h3>
-					<p>Name: {{customerName}}</p>
-					<p>Phone: {{phone}}</p>
-					<p>Email: {{email}}</p>
-					<p>Dog Name: {{dogName}}</p>
-					<p>Breed: {{breed}}</p>
-					<p>Weight: {{weight}}lbs</p>
-					<p>Service Requested: {{service}}</p>
-					<p>Groomer(s): 
+					<p ng-model="emailContent">
+					   Name: {{customerName}} <br/>
+					   Phone: {{phone}} <br/>
+					   Email: {{email}} <br/>
+					   Dog Name: {{dogName}} <br/>
+					   Breed: {{breed}} <br/>
+					   Weight: {{weight}}lbs <br/>
+					   Service Requested: {{service}} <br/>
+					   Groomer(s): 
 						<ul>
 							<li ng-repeat="groomer in groomers">{{groomer}}</li>
 						</ul>
+					<br/>
+					
+						Desired Dates: 
+						<ul>
+							<li ng-repeat="appointment in newCustomer.availableDates">
+								Date: {{appointment.date.date | date:"MM/dd/yyyy"}} <br/>
+								Time: {{appointment.time}}
+							</li>
+						</ul>
 					</p>
+					<button class="btn btn-success btn-lg" ng-show="submitAll" ng-click="submitted()">Submit</button>
 				</div>
 				<div class="col-xs-8" ng-show="showDates">
 					<h2>Dates</h2>
@@ -114,30 +145,16 @@
 						<div class="dropdown" ng-show="newDate.bookAppointment">
 							<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Choose Time<span class="caret"></span></button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-								<li><a href="#" ng-click="pushAppointment(date)">8:00am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">8:30am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">9:00am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">9:30am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">10:00am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">10:30am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">11:00am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">11:30am</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">12:00pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">12:30pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">1:00pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">1:30pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">2:00pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">2:30pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">3:00pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">3:30pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">4:00pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">4:30pm</a></li>
-								<li><a href="#" ng-click="pushAppointment(date)">5:00pm</a></li>
+								<li ng-repeat="time in times"><a href="#" ng-click="pushAppointment(newDate, time)">{{time}}</a></li>
 							</ul>
 						</div>
 						</li>
-						<button class="btn btn-info" ng-click="moreDates()">More Dates...</button>
+						<button class="btn btn-default" ng-click="moreDates()">More Dates...</button>
 					</ul>
+					<button class="btn btn-success" ng-click="submitRequest()">Submit Grooming Request</button>
+				</div>
+				<div class="col-xs-8" ng-show="showFinalMessage">
+					<h4>We will be contacting you soon with your appointment confirmation.</h4>
 				</div>
 			</div>
 		</div>
