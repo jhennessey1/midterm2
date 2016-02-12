@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Mid Term Project: Scheduling Program</title>
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
 		<link rel="stylesheet" href="main.css"/>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</head>
 	<body ng-app="calendarMod" ng-controller="calendarController">
-		<div class="container-fluid">
+		<div class="container-fluid topPage">
 			<div class="row">
-				<div class="col-xs-12 logo">
-					<img src="http://wagzpetmarket.com/images/logo-grooming.jpg">
+				<div class="col-xs-6 logo">
+					<a href="http://wagzpetmarket.com"><img src="http://wagzpetmarket.com/images/logo-grooming.jpg"></a>
+				</div>
+				<div class="col-xs-6">
+					<h4 class="fancy">"{{quotes[i]}}"</h4>
+					<button class="btn btn-default btn-xs pull-right fancy" ng-click="randomQuoteGen()">New Quote</button>
 				</div>
 			</div>
 		</div>
@@ -66,13 +73,16 @@
 						<div role="tabpanel" class="tab-pane" id="contactInfo">
 							<form>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Name" ng-model="customerName">
+									<label>Name:</label>
+									<input type="text" class="form-control" placeholder="Your Name" ng-model="customerName">
 								</div>
 								<div class="form-group">
-									<input type="tel" class="form-control" placeholder="Phone Number" ng-model="phone">
+								<label>Telephone Number:</label>
+									<input type="tel" class="form-control" placeholder="(xxx)xxx-xxxx" ng-model="phone">
 								</div>
 								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Email Address" ng-model="email">
+									<label>Email Address:</label>
+									<input type="email" class="form-control" placeholder="example@example.com" ng-model="email">
 								</div>
 								
 							</form>
@@ -80,17 +90,221 @@
 						<div role="tabpanel" class="tab-pane" id="dogInfo">
 							<form>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Name" ng-model="dogName">
+									<label>Dog's Name:</label>
+									<input type="text" class="form-control" ng-model="dogName">
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Breed" ng-model="breed">
+									<label>Select a Breed:</label>
+									<p class="help-block">Note: If mixed choose dominant breed</p>
+									<select class="form-control" ng-model="breed">
+										<option>Affenpinscher</option>
+										<option>Afghan Hound</option>
+										<option>Airedale Terrier</option>
+										<option>Akita</option>
+										<option>Alaskan Malamute</option>
+										<option>American English Coonhound</option>
+										<option>American Eskimo Dog (Miniature)</option>
+										<option>American Eskimo Dog (Standard)</option>
+										<option>American Eskimo Dog (Toy)</option>
+										<option>American Foxhound</option>
+										<option>American Hairless Terrier</option>
+										<option>American Staffordshire Terrier</option>
+										<option>American Water Spaniel</option>
+										<option>Anatolian Shepherd Dog</option>
+										<option>Australian Cattle Dog</option>
+										<option>Australian Shepherd</option>
+										<option>Australian Terrier</option>
+										<option>Basenji</option>
+										<option>Basset Hound</option>
+										<option>Beagle</option>
+										<option>Bearded Collie</option>
+										<option>Beauceron</option>
+										<option>Bedlington Terrier</option>
+										<option>Belgian Malinois</option>
+										<option>Belgian Sheepdog</option>
+										<option>Belgian Tervuren</option>
+										<option>Bergamasco</option>
+										<option>Berger Picard</option>
+										<option>Bernese Mountain Dog</option>
+										<option>Bichon Frisé</option>
+										<option>Black and Tan Coonhound</option>
+										<option>Black Russian Terrier</option>
+										<option>Bloodhound</option>
+										<option>Bluetick Coonhound</option>
+										<option>Boerboel</option>
+										<option>Border Collie</option>
+										<option>Border Terrier</option>
+										<option>Borzoi</option>
+										<option>Boston Terrier</option>
+										<option>Bouvier des Flandres</option>
+										<option>Boxer</option>
+										<option>Boykin Spaniel</option>
+										<option>Briard</option>
+										<option>Brittany</option>
+										<option>Brussels Griffon</option>
+										<option>Bull Terrier</option>
+										<option>Bull Terrier (Miniature)</option>
+										<option>Bulldog</option>
+										<option>Bullmastiff</option>
+										<option>Cairn Terrier</option>
+										<option>Canaan Dog</option>
+										<option>Cane Corso</option>
+										<option>Cardigan Welsh Corgi</option>
+										<option>Cavalier King Charles Spaniel</option>
+										<option>Cesky Terrier</option>
+										<option>Chesapeake Bay Retriever</option>
+										<option>Chihuahua</option>
+										<option>Chinese Crested Dog</option>
+										<option>Chinese Shar Pei</option>
+										<option>Chinook</option>
+										<option>Chow Chow</option>
+										<option>Cirneco dell'Etna</option>
+										<option>Clumber Spaniel</option>
+										<option>Cocker Spaniel</option>
+										<option>Collie</option>
+										<option>Coton de Tulear</option>
+										<option>Curly-Coated Retriever</option>
+										<option>Dachshund</option>
+										<option>Dalmatian</option>
+										<option>Dandie Dinmont Terrier</option>
+										<option>Doberman Pinscher</option>
+										<option>Dogue de Bordeaux</option>
+										<option>English Cocker Spaniel</option>
+										<option>English Foxhound</option>
+										<option>English Setter</option>
+										<option>English Springer Spaniel</option>
+										<option>English Toy Spaniel</option>
+										<option>Entlebucher Mountain Dog</option>
+										<option>Field Spaniel</option>
+										<option>Finnish Lapphund</option>
+										<option>Finnish Spitz</option>
+										<option>Flat-Coated Retriever</option>
+										<option>French Bulldog</option>
+										<option>German Pinscher</option>
+										<option>German Shepherd Dog</option>
+										<option>German Shorthaired Pointer</option>
+										<option>German Wirehaired Pointer</option>
+										<option>Giant Schnauzer</option>
+										<option>Glen of Imaal Terrier</option>
+										<option>Golden Retriever</option>
+										<option>Gordon Setter</option>
+										<option>Great Dane</option>
+										<option>Great Pyrenees</option>
+										<option>Greater Swiss Mountain Dog</option>
+										<option>Greyhound</option>
+										<option>Harrier</option>
+										<option>Havanese</option>
+										<option>Ibizan Hound</option>
+										<option>Icelandic Sheepdog</option>
+										<option>Irish Red and White Setter</option>
+										<option>Irish Setter</option>
+										<option>Irish Terrier</option>
+										<option>Irish Water Spaniel</option>
+										<option>Irish Wolfhound</option>
+										<option>Italian Greyhound</option>
+										<option>Japanese Chin</option>
+										<option>Keeshond</option>
+										<option>Kerry Blue Terrier</option>
+										<option>Komondor</option>
+										<option>Kuvasz</option>
+										<option>Labrador Retriever</option>
+										<option>Lagotto Romagnolo</option>
+										<option>Lakeland Terrier</option>
+										<option>Leonberger</option>
+										<option>Lhasa Apso</option>
+										<option>Löwchen</option>
+										<option>Maltese</option>
+										<option>Manchester Terrier</option>
+										<option>Mastiff</option>
+										<option>Miniature American Shepherd</option>
+										<option>Miniature Bull Terrier</option>
+										<option>Miniature Pinscher</option>
+										<option>Miniature Schnauzer</option>
+										<option>Neapolitan Mastiff</option>
+										<option>Newfoundland</option>
+										<option>Norfolk Terrier</option>
+										<option>Norwegian Buhund</option>
+										<option>Norwegian Elkhound</option>
+										<option>Norwegian Lundehund</option>
+										<option>Norwich Terrier</option>
+										<option>Nova Scotia Duck-Tolling Retriever</option>
+										<option>Old English Sheepdog</option>
+										<option>Otterhound</option>
+										<option>Papillon</option>
+										<option>Parson Russell Terrier</option>
+										<option>Pekingese</option>
+										<option>Pembroke Welsh Corgi</option>
+										<option>Petit Basset Griffon Vendéen</option>
+										<option>Pharaoh Hound</option>
+										<option>Plott</option>
+										<option>Pointer</option>
+										<option>Polish Lowland Sheepdog</option>
+										<option>Pomeranian</option>
+										<option>Poodle</option>
+										<option>Portuguese Podengo</option>
+										<option>Portuguese Water Dog</option>
+										<option>Pug</option>
+										<option>Puli</option>
+										<option>Pyrenean Shepherd</option>
+										<option>Rat Terrier</option>
+										<option>Redbone Coonhound</option>
+										<option>Rhodesian Ridgeback</option>
+										<option>Rottweiler</option>
+										<option>Russell Terrier</option>
+										<option>St. Bernard</option>
+										<option>Saluki</option>
+										<option>Samoyed</option>
+										<option>Schipperke</option>
+										<option>Scottish Deerhound</option>
+										<option>Scottish Terrier</option>
+										<option>Sealyham Terrier</option>
+										<option>Shetland Sheepdog</option>
+										<option>Shiba Inu</option>
+										<option>Shih Tzu</option>
+										<option>Siberian Husky</option>
+										<option>Silky Terrier</option>
+										<option>Skye Terrier</option>
+										<option>Sloughi</option>
+										<option>Smooth Fox Terrier</option>
+										<option>Soft-Coated Wheaten Terrier</option>
+										<option>Spanish Water Dog</option>
+										<option>Spinone Italiano</option>
+										<option>Staffordshire Bull Terrier</option>
+										<option>Standard Schnauzer</option>
+										<option>Sussex Spaniel</option>
+										<option>Swedish Vallhund</option>
+										<option>Tibetan Mastiff</option>
+										<option>Tibetan Spaniel</option>
+										<option>Tibetan Terrier</option>
+										<option>Toy Fox Terrier</option>
+										<option>Treeing Walker Coonhound</option>
+										<option>Vizsla</option>
+										<option>Weimaraner</option>
+										<option>Welsh Springer Spaniel</option>
+										<option>Welsh Terrier</option>
+										<option>West Highland White Terrier</option>
+										<option>Whippet</option>
+										<option>Wire Fox Terrier</option>
+										<option>Wirehaired Pointing Griffon</option>
+										<option>Wirehaired Vizsla</option>
+										<option>Xoloitzcuintli</option>
+										<option>Yorkshire Terrier</option>
+									</select>
 								</div>
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Weight" ng-model="weight">
+									<label>Select Weight Group (lbs):</label>
+									<select class="form-control" ng-model="weight">
+										<option>0-20</option>
+										<option>21-40</option>
+										<option>41-60</option>
+										<option>61-80</option>
+										<option>81-100</option>
+										<option>100+</option>
+									</select>
 								</div>
 								<div class="form-group">
 									<label for="fileInput">Upload Rabies Info</label>
-									<input type="file" id="fileInput">
+									<input type="file" id="fileInput" ng-model="rabiesInfo" ng-click="fileUpload()">
 									<p class="help-block">Note: Rabies info must be presented in person if not uploaded here.</p>
 								</div>
 							</form>
@@ -111,31 +325,37 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-4 customerInfo" ng-show="showCustomer">
-					<h3>Customer Info</h3>
-					<p ng-model="emailContent">
-					   Name: {{customerName}} <br/>
-					   Phone: {{phone}} <br/>
-					   Email: {{email}} <br/>
-					   Dog Name: {{dogName}} <br/>
-					   Breed: {{breed}} <br/>
-					   Weight: {{weight}}lbs <br/>
-					   Service Requested: {{service}} <br/>
-					   Groomer(s): 
-						<ul>
-							<li ng-repeat="groomer in groomers">{{groomer}}</li>
-						</ul>
-					<br/>
+					<h3>Customer Info<button class="btn btn-default btn-sm" ng-click="editInfo()" ng-hide="noEdit">Edit Info</button></h3>
+					<form class="submissionForm"action="MAILTO:example@wagzpetmarket.com" method="post" enctype="text/plain">
+					   Name:
+					   <input type="text" name="Name" value="{{customerName}}" readonly> <br><br>
+					   Phone: 
+					   <input type="text" name="Phone Number" value="{{phone}}" readonly> <br><br>
+					   Email: 
+					   <input type="text" name="Email" value="{{email}}" readonly> <br><br>
+					   Dog Name: 
+					   <input type="text" name="Dog Name" value="{{dogName}}" readonly> <br><br>
+					   Breed: <br>
+					   <input type="text" name="Breed" value="{{breed}}" readonly> <br><br>
+					   Weight: 
+					   <input type="text" name="Weight" value="{{weight}} lbs" readonly> <br><br>
+					   Service Requested: 
+					   <input type="text" name="Service Requested" value="{{service}}" readonly> <br><br>
+
+					   Groomer(s): <br>
+							<input type="text" name="Groomers" value="{{groomer}}" ng-repeat="groomer in groomers" readonly>
+					<br><br>
 					
-						Desired Dates: 
-						<ul>
-							<li ng-repeat="appointment in newCustomer.availableDates">
-								Date: {{appointment.date.date | date:"MM/dd/yyyy"}} <br/>
-								Time: {{appointment.time}}
-							</li>
-						</ul>
-					</p>
-					<button class="btn btn-success btn-lg" ng-show="submitAll" ng-click="submitted()">Submit</button>
+						Desired Dates: <br>
+							<input type="text" name="Desired Dates" value="{{appointment.time}}, {{appointment.date.date | date:'MM/dd/yyyy'}}" ng-repeat="appointment in newCustomer.availableDates" readonly> <br><br>
+								
+
+						
+						
+						<input type="submit" name="submit" value="Submit Request" ng-value="formInfo" ng-show="readySubmit" ng-click="submitted()">
+					</form>
 				</div>
+
 				<div class="col-xs-8" ng-show="showDates">
 					<h2>Dates</h2>
 					<p>Select some dates to check for availability.</p>
@@ -153,10 +373,12 @@
 					</ul>
 					<button class="btn btn-success" ng-click="submitRequest()">Submit Grooming Request</button>
 				</div>
-				<div class="col-xs-8" ng-show="showFinalMessage">
+				<div class="col-xs-8 finalMessage" ng-show="showFinalMessage">
+					<h2>Thank you for your submission!</h2>
 					<h4>We will be contacting you soon with your appointment confirmation.</h4>
+					<img class="dog" src="http://cdn.hasinstinct.com/2015/09/19/happy-dog-image.jpg">
 				</div>
 			</div>
-		</div>
+		</div>		
 	</body>
 </html>
