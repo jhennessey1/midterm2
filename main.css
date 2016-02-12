@@ -1,5 +1,5 @@
 .header {
-
+	text-align: center;
 }
 
 .groomerSelect {
@@ -21,4 +21,27 @@ body {
 
 .logo {
 	background-color: white;
+}
+
+.topPage {
+	background-color: white;
+}
+
+.dog {
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+}
+
+.finalMessage {
+	text-align: center;
+}
+
+.fancy {
+	font-family: cursive;
+	text-align: right;
+}
+
+.submissionForm input{
+	float: right;
 }

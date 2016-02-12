@@ -84,12 +84,34 @@ angular.module('calendarMod')
 			$scope.showDates = false
 			$scope.greenMessage = "Verify that the information below is correct."
 			$scope.showSubmitButton = true
-			$scope.submitAll = true
+			$scope.readySubmit = true
 		}
 		$scope.submitted = function() {
-			$scope.greenMessage = "Thank you for your submission!"
+			$scope.greenMessage = ""
 			$scope.showFinalMessage = true
+			$scope.noEdit = true
+			$scope.readySubmit = false
 		}
+		$scope.file = "Not Uploaded"
+		$scope.fileUpload = function() {
+			$scope.file = "File Uploaded (awaiting validation)"
+		}
+		$scope.editInfo = function() {
+			$scope.showDates = false
+			$scope.showForms = true
+			$scope.showCustomer = false
+			$scope.greenMessage = "Edit Customer Info..."
+		}
+
+		$scope.randomQuoteGen = function() {
+			$scope.quotes = ["Cleanliness is next to dogliness", "You can say any foolish thing to a dog, and the dog will give you a look that says, ‘Wow, you’re right! I never would’ve thought of that!'", "Dogs are not our whole life, but they make our lives whole.", "Every dog has his day, unless he loses his tail, then he has a weak-end.", "The better I get to know men, the more I find myself loving dogs.", "To his dog, every man is Napoleon; hence the constant popularity of dogs.", "Anybody who doesn’t know what soap tastes like never washed a dog.", "Outside of a dog, a book is man’s best friend. Inside of a dog it’s too dark to read.", "If you think dogs can’t count, try putting three dog biscuits in your pocket and then give him only two of them.", "The average dog is a nicer person than the average person.", "I wonder if other dogs think poodles are members of a weird religious cult.", "Happiness is a warm puppy.", "If I have any beliefs about immortality, it is that certain dogs I have known will go to heaven, and very, very few persons.", "If you want a friend in Washington, get a dog.", "My dog is worried about the economy because Alpo is up to $3.00 a can. That’s almost $21.00 in dog money.", "If a dog will not come to you after having looked you in the face, you should go home and examine your conscience."]
+
+			$scope.i = Math.floor(Math.random() * $scope.quotes.length)
+			return $scope.quotes[$scope.i]
+				
+			}
+
+		$scope.randomQuoteGen()	
 	}])
 
 
