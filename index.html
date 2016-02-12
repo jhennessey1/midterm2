@@ -16,10 +16,10 @@
 	<body ng-app="calendarMod" ng-controller="calendarController">
 		<div class="container-fluid topPage">
 			<div class="row">
-				<div class="col-xs-6 logo">
+				<div class="col-xs-12 col-md-6 logo">
 					<a href="http://wagzpetmarket.com"><img src="http://wagzpetmarket.com/images/logo-grooming.jpg"></a>
 				</div>
-				<div class="col-xs-6">
+				<div class="col-xs-12 col-md-6">
 					<h4 class="fancy">"{{quotes[i]}}"</h4>
 					<button class="btn btn-default btn-xs pull-right fancy" ng-click="randomQuoteGen()">New Quote</button>
 				</div>
@@ -34,7 +34,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-4 groomerSelect">
+				<div class="col-xs-12 col-md-4 groomerSelect">
 					<h4>{{greenMessage}}</h4>
 					<form ng-hide="hideForms">
 						<div class="checkbox">
@@ -63,7 +63,7 @@
 						<img src="http://wagzpetmarket.com/images/staff_amber.jpg">
 					</div>
 				</div>
-				<div class="col-xs-8" ng-show="showForms">
+				<div class="col-xs-12 col-md-8" ng-show="showForms">
 					<ul class="nav nav-tabs">
 						<li role="presentation"><a href="#contactInfo" aria-controls="contactInfo" role="tab" data-toggle="tab">Contact Info</a></li>
 						<li role="presentation"><a href="#dogInfo" aria-controls="dogInfo" role="tab" data-toggle="tab">Dog Info</a></li>
@@ -324,7 +324,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-4 customerInfo" ng-show="showCustomer">
+				<div class="col-xs-12 col-md-4 customerInfo" ng-show="showCustomer">
 					<h3>Customer Info<button class="btn btn-default btn-sm" ng-click="editInfo()" ng-hide="noEdit">Edit Info</button></h3>
 					<form class="submissionForm"action="MAILTO:example@wagzpetmarket.com" method="post" enctype="text/plain">
 					   Name:
@@ -356,7 +356,7 @@
 					</form>
 				</div>
 
-				<div class="col-xs-8" ng-show="showDates">
+				<div class="col-xs-12 col-md-8" ng-show="showDates">
 					<h2>Dates</h2>
 					<p>Select some dates to check for availability.</p>
 					<ul>
@@ -373,7 +373,7 @@
 					</ul>
 					<button class="btn btn-success" ng-click="submitRequest()">Submit Grooming Request</button>
 				</div>
-				<div class="col-xs-8 finalMessage" ng-show="showFinalMessage">
+				<div class="col-xs-12 col-md-8 finalMessage" ng-show="showFinalMessage">
 					<h2>Thank you for your submission!</h2>
 					<h4>We will be contacting you soon with your appointment confirmation.</h4>
 					<img class="dog" src="http://cdn.hasinstinct.com/2015/09/19/happy-dog-image.jpg">

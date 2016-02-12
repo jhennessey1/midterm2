@@ -91,6 +91,7 @@ angular.module('calendarMod')
 			$scope.showFinalMessage = true
 			$scope.noEdit = true
 			$scope.readySubmit = false
+			$scope.showForms = false
 		}
 		$scope.file = "Not Uploaded"
 		$scope.fileUpload = function() {
