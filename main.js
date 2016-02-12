@@ -22,7 +22,7 @@ angular.module('calendarMod')
 			} else {$scope.showGroomerAmber = false}
 			$scope.hideForms = true
 			$scope.showForms = true
-			$scope.greenMessage = "Next, complete the forms to the right."
+			$scope.greenMessage = "Next, complete these forms."
 		}
 		$scope.subInfo = function() {
 			$scope.showCustomer = true
@@ -92,6 +92,7 @@ angular.module('calendarMod')
 			$scope.noEdit = true
 			$scope.readySubmit = false
 			$scope.showForms = false
+			$scope.showDates = false
 		}
 		$scope.file = "Not Uploaded"
 		$scope.fileUpload = function() {
